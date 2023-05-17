@@ -1,4 +1,5 @@
 import React from 'react';
+import { useForm } from "react-hook-form";
 import {
     Badge,
     Button,
@@ -12,6 +13,7 @@ import {
   } from "react-bootstrap"
 
 const AddProject = () => {
+  const { register, handleSubmit,reset,formState,formState:{errors}, } = useForm();
     return (
         <>
       <Container fluid>
@@ -19,28 +21,27 @@ const AddProject = () => {
           <Col md="8">
             <Card>
               <Card.Header>
-                <Card.Title as="h4">Add  Team</Card.Title>
+                <Card.Title as="h4">Add  Project</Card.Title>
               </Card.Header>
               <Card.Body>
                 <Form>
                   <Row>
                     <Col className="pr-1" md="5">
                       <Form.Group>
-                        <label>Company (disabled)</label>
+                        <label>Title</label>
                         <Form.Control
-                          defaultValue="Creative Code Inc."
-                          disabled
-                          placeholder="Company"
+                         input {...register("name",{required:true,maxLength:20})}
+                          placeholder="Title"
                           type="text"
                         ></Form.Control>
                       </Form.Group>
                     </Col>
                     <Col className="px-1" md="3">
                       <Form.Group>
-                        <label>Username</label>
+                        <label>Description</label>
                         <Form.Control
-                          defaultValue="michael23"
-                          placeholder="Username"
+                       input {...register("name",{required:true,maxLength:200})}
+                          placeholder="Description"
                           type="text"
                         ></Form.Control>
                       </Form.Group>
@@ -48,22 +49,31 @@ const AddProject = () => {
                     <Col className="pl-1" md="4">
                       <Form.Group>
                         <label htmlFor="exampleInputEmail1">
-                          Email address
+                          Client
                         </label>
-                        <Form.Control
-                          placeholder="Email"
-                          type="email"
-                        ></Form.Control>
+                     
+                          <Form.Select {...register("designation")}> 
+                          
+
+                          <option> Client </option>
+                          <option value="Architect">Architect</option>
+                          <option value="Asst.Architect">Asst.Architect</option>
+                          <option value="Engineer">Engineer</option>
+                          <option value="Engineer">Asst.Engineer</option>
+                          <option value="Site Engineer">Site Engineer </option>
+                          
+                        
+                        </Form.Select>
                       </Form.Group>
                     </Col>
                   </Row>
                   <Row>
                     <Col className="pr-1" md="6">
                       <Form.Group>
-                        <label>First Name</label>
+                        <label>Location</label>
                         <Form.Control
-                          defaultValue="Mike"
-                          placeholder="Company"
+                          input {...register("location",{required:true,maxLength:50})}
+                          placeholder="Location"
                           type="text"
                         ></Form.Control>
                       </Form.Group>
@@ -72,8 +82,7 @@ const AddProject = () => {
                       <Form.Group>
                         <label>Last Name</label>
                         <Form.Control
-                          defaultValue="Andrew"
-                          placeholder="Last Name"
+                        input {...register("consultant",{required:true,maxLength:50})}
                           type="text"
                         ></Form.Control>
                       </Form.Group>

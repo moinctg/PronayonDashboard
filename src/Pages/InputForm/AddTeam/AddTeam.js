@@ -59,7 +59,7 @@ const AddTeam = () => {
                 <Form onSubmit={handleSubmit(onSubmit)} method="POST" encType="multipart/form-data">
                   <Row>
                   
-                    <Col className="px-1" md="4">
+                    <Col className="px-1" md="6">
                       <Form.Group>
                         <label>Name :</label>
                         <Form.Control
@@ -69,7 +69,7 @@ const AddTeam = () => {
                         ></Form.Control>
                       </Form.Group>
                     </Col>
-                    <Col className="pr-1" md="4">
+                    <Col className="px-1" md="6">
                       <Form.Group>
                         <label>Department</label>
                         <Form.Select {...register("department")}> 

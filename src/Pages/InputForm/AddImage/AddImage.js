@@ -17,7 +17,8 @@ const AddImage = () => {
   const { register, handleSubmit,reset,formState,formState:{errors}, } = useForm();
   const [picture,setPicture] = useState(null);
   const onChangePicture= (e)=>{
-    setPicture(URL.createObjectURL(e.target.files[0]));
+    setPicture(e.target.files[0])
+    // setPicture(URL.createObjectURL(e.target.files[0]));
   }
   // const onSubmit = data =>{
   //   axios.post('http://localhost:8000/api/team', data)
@@ -35,7 +36,10 @@ const AddImage = () => {
   const onSubmit = async (data) => {
  
     const formData = new FormData();
-    formData.append("img", img);
+    formData.append("img", picture);
+    formData.append("name",data.name);
+    formData.append("description",data.description);
+
 
     // const res = await fetch("http://localhost:8000/api/img",{
     //     method: "POST",
@@ -50,6 +54,7 @@ const AddImage = () => {
     .then((res) => {console.log(res)
 
     })
+    console.log(data)
     
     alert(JSON.stringify(`${res.message}, status: ${res.status}`));
     setPicture(null);
@@ -103,7 +108,7 @@ const AddImage = () => {
       
         <br/>
         <br/>
-        <img className='image' src={picture && picture} alt=""/>
+       { picture &&  (<img className='image' src={ URL.createObjectURL(picture)} alt=""/>)}
         <br/>
         <br/>
         <br/>
