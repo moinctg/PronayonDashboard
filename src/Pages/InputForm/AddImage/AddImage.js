@@ -55,7 +55,10 @@ const AddImage = () => {
 
     })
     console.log(data)
-    
+    // if (res.data.insertedId) {
+    //   //       alert('added successfully');
+    //   //       reset();
+    // }
     alert(JSON.stringify(`${res.message}, status: ${res.status}`));
     setPicture(null);
 };

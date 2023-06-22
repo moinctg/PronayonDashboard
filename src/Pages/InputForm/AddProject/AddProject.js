@@ -26,27 +26,29 @@ const AddProject = () => {
               <Card.Body>
                 <Form>
                   <Row>
-                    <Col className="pr-1" md="5">
+                    <Col className="pr-1" md="6">
                       <Form.Group>
                         <label>Title</label>
                         <Form.Control
-                         input {...register("name",{required:true,maxLength:20})}
+                         input {...register("name",{required:true,maxLength:100})}
                           placeholder="Title"
                           type="text"
                         ></Form.Control>
                       </Form.Group>
                     </Col>
-                    <Col className="px-1" md="3">
+                    <Col className="px-1" md="6">
                       <Form.Group>
                         <label>Description</label>
                         <Form.Control
-                       input {...register("name",{required:true,maxLength:200})}
+                       input {...register("name",{required:true,maxLength:500})}
                           placeholder="Description"
                           type="text"
                         ></Form.Control>
                       </Form.Group>
                     </Col>
-                    <Col className="pl-1" md="4">
+                    </Row>
+                    <Row>
+                    <Col className="pl-1" md="6">
                       <Form.Group>
                         <label htmlFor="exampleInputEmail1">
                           Client
@@ -66,8 +68,8 @@ const AddProject = () => {
                         </Form.Select>
                       </Form.Group>
                     </Col>
-                  </Row>
-                  <Row>
+                 
+                 
                     <Col className="pr-1" md="6">
                       <Form.Group>
                         <label>Location</label>
@@ -78,9 +80,10 @@ const AddProject = () => {
                         ></Form.Control>
                       </Form.Group>
                     </Col>
+                    <Row></Row>
                     <Col className="pl-1" md="6">
                       <Form.Group>
-                        <label>Last Name</label>
+                        <label>Consultant</label>
                         <Form.Control
                         input {...register("consultant",{required:true,maxLength:50})}
                           type="text"
